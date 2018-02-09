@@ -2,7 +2,7 @@
 /**
  * GoogleSiteMap
  *
- * Builds the Google SiteMap XML. 
+ * Builds the Google SiteMap XML.
  * Version 2+ of GoogleSiteMap uses code by Garry Nutting of the MODX Core Team to deliver sitemaps blazingly fast.
  *
  * @author YJ Tso <yj@modx.com>, Garry Nutting <garry@modx.com>
@@ -53,13 +53,13 @@ $legacyProps = array_intersect_key($scriptProperties, $legacyProps);
 $legacySnippet = $modx->getOption('legacySnippet', $scriptProperties, 'GoogleSiteMapVersion1');
 
 if (!empty($legacyProps) && $modx->getCount('modSnippet', array('name' => $legacySnippet))) {
-    
+
     $output = $modx->runSnippet($legacySnippet, $scriptProperties);
     if ($output !== null) {
         $modx->cacheManager->set($cacheKey, $output, $expires, $options);
         return $output;
     }
-    
+
 }
 
 /* Begin new Snippet scope */
@@ -82,12 +82,12 @@ $priorityTV = $modx->getOption('priorityTV', $scriptProperties, '');
 
 /* Fetch TV ID if string provided */
 if (!is_numeric($priorityTV)) {
-    
+
     $c = $modx->newQuery('modTemplateVar');
     $c->select('id');
     $c->where(array('name' => $priorityTV));
     $priorityTV = $modx->getValue($c->prepare());
-    
+
 }
 
 /* Query by Context and set site_url / site_start */
@@ -95,7 +95,7 @@ $items = '';
 // Set today's date for homepage lastmod
 $today = date('Y-m-d');
 foreach ($context as $ctx) {
-    
+
     $siteUrl = '';
     // Fetch current context object for site_url
     $currentCtx = $modx->getContext($ctx);
@@ -103,16 +103,18 @@ foreach ($context as $ctx) {
         $siteUrl = $currentCtx->getOption('site_url');
         // Add site_url to output
         $items .= "<url><loc>{$siteUrl}</loc><lastmod>{$today}</lastmod></url>" . PHP_EOL;
-    } 
+    }
     if (empty($siteUrl)) {
         // We need something to build the links with, even if no context setting
         $siteUrl = $modx->getOption('site_url', null, MODX_SITE_URL);
     }
-    
+
     $tablePrefix = $modx->getOption('table_prefix');
-    
-    $filters[] = "s.context_key = '{$ctx}'";
-    $criteria = implode(' AND ', $filters);
+
+    // Context-specific filters
+    $ctxFilters = $filters;
+    $ctxFilters[] = "s.context_key = '{$ctx}'";
+    $criteria = implode(' AND ', $ctxFilters);
     $tvQuery = '';
     if ($priorityTV) $tvQuery = "IFNULL(
         CONCAT('<priority>',(
@@ -121,12 +123,12 @@ foreach ($context as $ctx) {
             USE INDEX (tv_cnt)
             WHERE contentid = s.id AND tmplvarid = " . $priorityTV . "
         ),'</priority>'),''),";
-        
+
     // Add all resources that meet criteria
     $stmt = $modx->query("
         SELECT
     	    GROUP_CONCAT(
-                '<url>',        
+                '<url>',
                 CONCAT('<loc>" . $siteUrl . "',uri,'</loc>'),
                 CONCAT('<lastmod>',CASE editedon WHEN 0 THEN FROM_UNIXTIME(publishedon, '%Y-%m-%d') ELSE FROM_UNIXTIME(editedon, '%Y-%m-%d') END,'</lastmod>'),
                 " . $tvQuery . "
@@ -144,7 +146,7 @@ foreach ($context as $ctx) {
         $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
         $items .= implode(PHP_EOL, $rows);
     }
-    
+
 }
 
 /* get container tpl and content */
