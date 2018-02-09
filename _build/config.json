@@ -264,7 +264,7 @@
                 "file": "gsmcachemanager.plugin.php",
                 "events": ["OnSiteRefresh"],
                 "properties": [{
-                    "name": "cache_partition",
+                    "name": "cachePartition",
                     "value": "googlesitemap"
                 }]
             }]
