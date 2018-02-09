@@ -1,64 +1,282 @@
 {
-    "name": "GoogleSiteMap"
-    ,"lowCaseName": "googlesitemap"
-    ,"description": "Builds the Google SiteMap XML. Version 2+ of GoogleSiteMap uses code by Garry Nutting of the MODX Core Team to deliver sitemaps blazingly fast."
-    ,"author": "Garry Nutting, YJ Tso"
-    ,"version": "2.0.2-rc1"
-    ,"package":{
+    "name": "GoogleSiteMap",
+    "lowCaseName": "googlesitemap",
+    "description": "Builds the Google SiteMap XML. Version 2+ of GoogleSiteMap uses code by Garry Nutting of the MODX Core Team to deliver sitemaps blazingly fast.",
+    "author": "Garry Nutting, YJ Tso",
+    "version": "2.1.0-beta1",
+    "package": {
         "elements": {
             "snippets": [{
                 "name": "GoogleSiteMap",
                 "file": "googlesitemap.snippet.php",
                 "description": "New GoogleSiteMap Snippet—many times faster than Version 1, but with less options. If params are specified that depend on the old version, it will be called.",
-                "properties": [
-                    {"name":"cachePrefix","description":"prop_gsm.cacheprefix_desc","type":"textfield","options":"","value":"googlesitemap"},
-                    {"name":"cachePartition","description":"prop_gsm.cachepartition_desc","type":"textfield","options":"","value":"googlesitemap"},
-                    {"name":"cacheExpires","description":"prop_gsm.cacheexpires_desc","type":"textfield","options":"","value":"86400"},
-                    {"name":"context","description":"prop_gsm.context_desc","type":"textfield","options":"","value":""},
-                    {"name":"hideDeleted","description":"prop_gsm.hidedeleted_desc","type":"combo-boolean","options":"","value":true},
-                    {"name":"showHidden","description":"prop_gsm.showhidden_desc","type":"combo-boolean","options":"","value":false},
-                    {"name":"googleSchema","description":"prop_gsm.googleschema_desc","type":"textfield","options":"","value":"http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"},
-                    {"name":"published","description":"prop_gsm.published_desc","type":"combo-boolean","options":"","value":true},
-                    {"name":"searchable","description":"prop_gsm.searchable_desc","type":"combo-boolean","options":"","value":true},
-                    {"name":"sortBy","description":"prop_gsm.sortby_desc","type":"textfield","options":"","value":"menuindex"},
-                    {"name":"sortDir","description":"prop_gsm.sortdir_desc","type":"textfield","options":"","value":"ASC"},
-                    {"name":"containerTpl","description":"prop_gsm.containertpl_desc","type":"textfield","options":"","value":"gContainer"},
-                    {"name":"priorityTV","description":"prop_gsm.prioritytv_desc","type":"textfield","options":"","value":""},
-                    {"name":"legacyProps","description":"prop_gsm.legacyprops_desc","type":"textfield","options":"","value":"allowedtemplates, excludeResources, excludeChildrenOf, sortByAlias, templateFilter, itemTpl, maxDepth, startId, where"},
-                    {"name":"legacySnippet","description":"prop_gsm.legacysnippet_desc","type":"textfield","options":"","value":"GoogleSiteMapVersion1"}
+                "properties": [{
+                        "name": "cachePrefix",
+                        "description": "prop_gsm.cacheprefix_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "googlesitemap"
+                    },
+                    {
+                        "name": "cachePartition",
+                        "description": "prop_gsm.cachepartition_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "googlesitemap"
+                    },
+                    {
+                        "name": "cacheExpires",
+                        "description": "prop_gsm.cacheexpires_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "86400"
+                    },
+                    {
+                        "name": "context",
+                        "description": "prop_gsm.context_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "hideDeleted",
+                        "description": "prop_gsm.hidedeleted_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": true
+                    },
+                    {
+                        "name": "showHidden",
+                        "description": "prop_gsm.showhidden_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": false
+                    },
+                    {
+                        "name": "googleSchema",
+                        "description": "prop_gsm.googleschema_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"
+                    },
+                    {
+                        "name": "published",
+                        "description": "prop_gsm.published_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": true
+                    },
+                    {
+                        "name": "searchable",
+                        "description": "prop_gsm.searchable_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": true
+                    },
+                    {
+                        "name": "sortBy",
+                        "description": "prop_gsm.sortby_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "menuindex"
+                    },
+                    {
+                        "name": "sortDir",
+                        "description": "prop_gsm.sortdir_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "ASC"
+                    },
+                    {
+                        "name": "containerTpl",
+                        "description": "prop_gsm.containertpl_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "gContainer"
+                    },
+                    {
+                        "name": "priorityTV",
+                        "description": "prop_gsm.prioritytv_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "legacyProps",
+                        "description": "prop_gsm.legacyprops_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "allowedtemplates, excludeResources, excludeChildrenOf, sortByAlias, templateFilter, itemTpl, maxDepth, startId, where"
+                    },
+                    {
+                        "name": "legacySnippet",
+                        "description": "prop_gsm.legacysnippet_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "GoogleSiteMapVersion1"
+                    }
                 ]
-            },{
+            }, {
                 "name": "GoogleSiteMapVersion1",
                 "file": "googlesitemapversion1.snippet.php",
                 "description": "Old GoogleSiteMap Snippet—many times SLOWER than new version, but with more options. Beware potential server errors trying to execute this Snippet.",
-                "properties": [
-                    {"name":"allowedtemplates","description":"prop_gsm.allowedtemplates_desc","type":"textfield","options":"","value":""},
-                    {"name":"context","description":"prop_gsm.context_desc","type":"textfield","options":"","value":""},
-                    {"name":"maxDepth","description":"prop_gsm.maxdepth_desc","type":"textfield","options":"","value":0},
-                    {"name":"hideDeleted","description":"prop_gsm.hidedeleted_desc","type":"combo-boolean","options":"","value":true},
-                    {"name":"showHidden","description":"prop_gsm.showhidden_desc","type":"combo-boolean","options":"","value":false},
-                    {"name":"googleSchema","description":"prop_gsm.googleschema_desc","type":"textfield","options":"","value":"http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"},
-                    {"name":"published","description":"prop_gsm.published_desc","type":"combo-boolean","options":"","value":true},
-                    {"name":"searchable","description":"prop_gsm.searchable_desc","type":"combo-boolean","options":"","value":true},
-                    {"name":"excludeResources","description":"prop_gsm.excluderesources_desc","type":"textfield","options":"","value":""},
-                    {"name":"excludeChildrenOf","description":"prop_gsm.excludechildrenof_desc","type":"textfield","options":"","value":""},
-                    {"name":"sortBy","description":"prop_gsm.sortby_desc","type":"textfield","options":"","value":"menuindex"},
-                    {"name":"sortByAlias","description":"prop_gsm.sortbyalias_desc","type":"textfield","options":"","value":"modResource"},
-                    {"name":"sortDir","description":"prop_gsm.sortdir_desc","type":"textfield","options":"","value":"ASC"},
-                    {"name":"templateFilter","description":"prop_gsm.templatefilter_desc","type":"textfield","options":"","value":"id"},
-                    {"name":"itemTpl","description":"prop_gsm.itemtpl_desc","type":"textfield","options":"","value":"gItem"},
-                    {"name":"containerTpl","description":"prop_gsm.containertpl_desc","type":"textfield","options":"","value":"gContainer"},
-                    {"name":"startId","description":"prop_gsm.startid_desc","type":"textfield","options":"","value":"0"},
-                    {"name":"where","description":"prop_gsm.where_desc","type":"textfield","options":"","value":""},
-                    {"name":"priorityTV","description":"prop_gsm.prioritytv_desc","type":"textfield","options":"","value":""}]
-            }]
-            ,"chunks": [{
+                "properties": [{
+                        "name": "allowedtemplates",
+                        "description": "prop_gsm.allowedtemplates_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "context",
+                        "description": "prop_gsm.context_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "maxDepth",
+                        "description": "prop_gsm.maxdepth_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": 0
+                    },
+                    {
+                        "name": "hideDeleted",
+                        "description": "prop_gsm.hidedeleted_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": true
+                    },
+                    {
+                        "name": "showHidden",
+                        "description": "prop_gsm.showhidden_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": false
+                    },
+                    {
+                        "name": "googleSchema",
+                        "description": "prop_gsm.googleschema_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"
+                    },
+                    {
+                        "name": "published",
+                        "description": "prop_gsm.published_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": true
+                    },
+                    {
+                        "name": "searchable",
+                        "description": "prop_gsm.searchable_desc",
+                        "type": "combo-boolean",
+                        "options": "",
+                        "value": true
+                    },
+                    {
+                        "name": "excludeResources",
+                        "description": "prop_gsm.excluderesources_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "excludeChildrenOf",
+                        "description": "prop_gsm.excludechildrenof_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "sortBy",
+                        "description": "prop_gsm.sortby_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "menuindex"
+                    },
+                    {
+                        "name": "sortByAlias",
+                        "description": "prop_gsm.sortbyalias_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "modResource"
+                    },
+                    {
+                        "name": "sortDir",
+                        "description": "prop_gsm.sortdir_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "ASC"
+                    },
+                    {
+                        "name": "templateFilter",
+                        "description": "prop_gsm.templatefilter_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "id"
+                    },
+                    {
+                        "name": "itemTpl",
+                        "description": "prop_gsm.itemtpl_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "gItem"
+                    },
+                    {
+                        "name": "containerTpl",
+                        "description": "prop_gsm.containertpl_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "gContainer"
+                    },
+                    {
+                        "name": "startId",
+                        "description": "prop_gsm.startid_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": "0"
+                    },
+                    {
+                        "name": "where",
+                        "description": "prop_gsm.where_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    },
+                    {
+                        "name": "priorityTV",
+                        "description": "prop_gsm.prioritytv_desc",
+                        "type": "textfield",
+                        "options": "",
+                        "value": ""
+                    }
+                ]
+            }],
+            "chunks": [{
                 "name": "gContainer",
                 "file": "gcontainer.chunk.tpl"
+            }],
+            "plugins": [{
+                "name": "GSMCacheManager",
+                "file": "gsmcachemanager.plugin.php",
+                "events": ["OnSiteRefresh"],
+                "properties": [{
+                    "name": "cache_partition",
+                    "value": "googlesitemap"
+                }]
             }]
-        }
-    }
-    ,"build": {
+        },
+        "systemSettings": [{
+            "key": "cache_partition",
+            "type": "textfield",
+            "area": "default",
+            "value": "googlesitemap"
+        }]
+    },
+    "build": {
         "attributes": {
             "chunks": {
                 "update_object": false
