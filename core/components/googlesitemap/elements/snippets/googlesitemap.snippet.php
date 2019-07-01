@@ -39,7 +39,9 @@ $options = array(
 
 // Set context(s)
 $context = array_filter(array_map('trim', explode(',', $modx->getOption('context', $scriptProperties, $modx->context->get('key'), true))));
-$cacheKey .= '.' . md5($modx->toJSON($scriptProperties));
+
+// Hash cache key
+$cacheKey .= '.' . md5($modx->toJSON(array_merge($scriptProperties, ['context' => $context])));
 
 // Fetch from cache
 $output = null;
