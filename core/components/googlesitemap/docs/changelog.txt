@@ -2,6 +2,10 @@ Changelog for GoogleSiteMap.
 
 GoogleSiteMap 2.1.0
 ====================================
+- Fix cacheKey collision issue #9
+
+GoogleSiteMap 2.1.0
+====================================
 - Fix multi-context issue
 - Add cachemanager Plugin
 
