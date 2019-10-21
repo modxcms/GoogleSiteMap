@@ -1,8 +1,8 @@
 --------------------
 Snippet: GoogleSiteMap
 --------------------
-Version: 2.1.0-beta1
-Released: Feb 8, 2018
+Version: 2.1.x
+First Relesed: Feb 8, 2018
 Author: YJ Tso <yj@modx.com>, Garry Nutting <garry@modx.com>
 
 - Added cachemanager plugin OnSiteRefresh
