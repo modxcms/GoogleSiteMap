@@ -15,7 +15,9 @@ Examples:
 [[!GoogleSiteMap? &itemTpl=`gItem`]] // &itemTpl is a legacy feature, so the legacy Snippet will be called. No performance benefit, except new caching mechanism.
 
 This project is managed at: https://github.com/modxcms/GoogleSiteMap
+
 --------------------
+
 Version: 1.2
 Created: June 23, 2009
 Author: Shaun McCormick <shaun@modx.com>

@@ -1,5 +1,9 @@
 Changelog for GoogleSiteMap.
 
+GoogleSiteMap 2.1.2
+====================================
+- Fix duplicate `site_start` url. Thanks [@Jako](https://github.com/Jako)
+
 GoogleSiteMap 2.1.1
 ====================================
 - Fix cacheKey collision issue #9
