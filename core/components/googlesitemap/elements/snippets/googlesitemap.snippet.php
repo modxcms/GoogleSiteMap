@@ -116,6 +116,9 @@ foreach ($context as $ctx) {
     // Context-specific filters
     $ctxFilters = $filters;
     $ctxFilters[] = "s.context_key = '{$ctx}'";
+    if ($currentCtx) {
+        $ctxFilters[] = "s.id != '{$currentCtx->getOption('site_start')}'";
+    }
     $criteria = implode(' AND ', $ctxFilters);
     $tvQuery = '';
     if ($priorityTV) $tvQuery = "IFNULL(
